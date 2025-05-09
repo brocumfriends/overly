@@ -1,0 +1,208 @@
+* {
+    background-color: black;
+    color: aliceblue;
+    margin: 0px;
+    padding: 0px;
+    text-indent: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-width: 3px;
+}
+
+.Lily {
+    background-color: hsl(181, 25%, 40%);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    padding-top: 1pc;
+    padding-bottom: 1pc;
+    color: lightgray;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.Aria {
+    border-color: lightgray;
+    border-style: solid;
+    color: lightgray;
+    background-color: lightgray;
+}
+
+.Alice>h3 {
+    text-align: center;
+    margin-top: 1pc;
+    margin-bottom: 1pc;
+    color: aliceblue;
+}
+
+.Alice {
+    margin-left: 10px;
+}
+
+h6 {
+    background-color: hsl(181, 25%, 40%);
+}
+
+.Alice>p {
+    text-indent: 1pc;
+    margin-left: 3px;
+    color: aliceblue;
+}
+
+#title {
+    margin-right: 1pc;
+}
+
+.butt {
+    margin-top: 0.8pc;
+    margin-bottom: 0.8pc;
+}
+
+.butts {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 2px;
+}
+
+.button {
+    background-color: hsl(181, 25%, 40%);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Lina {
+    margin-bottom: 1pc
+}
+
+.Joelypoly {
+    margin: 2pc;
+    padding: 1pc;
+    border-style: solid;
+    border-color: lightgray;
+    display: flex;
+    justify-self: center;
+    color: lightgray;
+    font-weight: 100;
+}
+
+.Joelone {
+    width: 28%;
+    padding: 8px;
+}
+
+.Joeltwo {
+    width: 28%;
+    padding: 8px;
+}
+
+.Joelthree {
+    width: 28%;
+    padding: 8px;
+}
+
+.Joelone>h4 {
+    text-align: center;
+    font-weight: 0;
+}
+
+.Joeltwo>h4 {
+    text-align: center;
+    font-weight: 0;
+}
+
+.Joelthree>h4 {
+    text-align: center;
+    font-weight: 0;
+}
+
+.Alyssa {
+    background-color: hsl(181, 25%, 40%);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    padding-top: 1pc;
+    padding-bottom: 1pc;
+    color: lightgray;
+    text-align: center;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+    border-color: aliceblue;
+    margin: 30px;
+    display: flex;
+    justify-self: center;
+}
+
+button {
+    border-width: 0px;
+    background-color: lightgray;
+    color: black;
+    padding: 5px;
+}
+
+#Aliceone {
+    border-style: dashed;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 3pc;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    z-index: 1;
+    border-width: 1.4px;
+}
+
+#Alicetwo {
+    border-style: dashed;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 3pc;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    z-index: 1;
+    border-width: 1.4px;
+}
+
+.stink {
+    z-index: 5;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
