@@ -49,6 +49,12 @@ footer {
     margin-top: 0px;
 }
 
+#Leveluptwo {
+    font-size: large;
+    background-color: hsl(181, 25%, 40%);
+    padding-top: 1pc;
+}
+
 h1 {
     padding-bottom: 0.4pc;
     padding-top: 1pc;
@@ -68,6 +74,9 @@ h6 {
 
 .abcd1234 {
     background-color: hsl(181, 25%, 40%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .Aria {
@@ -88,6 +97,8 @@ h6 {
     border-width: 2px;
     border-style: solid;
     padding: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
 }
 
 #AlyssaBought {
@@ -110,4 +121,14 @@ h6 {
     border: 0;
     text-indent: 0;
     padding: 0;
+}
+
+span {
+    background-color: hsl(181, 25%, 40%);
+    padding: 0;
+    margin: 0;
+}
+
+#Joelone {
+    background-color: black;
 }

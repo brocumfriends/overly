@@ -23,7 +23,16 @@ let JoelTokensCollected = 0
 let LilyCost = 750
 let Mistpersecond = 0
 let MistElfytimer = 1000
+let MistElfytimertwo = 140
 let AlyssaSacrifice = false
+let AlyssaSacrificeCount = 0
+let Infinite = true
+let AlyssaButtonFour = false
+let Alice = 0
+let AliceforLevel = 0
+let Alicespent = 0
+let Level = 1
+let ToNextLevel = 4
 
 //
 //
@@ -51,6 +60,7 @@ onepieceFive.addEventListener('click', () => {
     EarnOn = false
     SkipOn = false
     JawsPressed = false
+    Infinite = false
 });
 
 
@@ -61,6 +71,7 @@ addendOne.addEventListener('click', () => {
     Joel = Joel + EarnMoneyAddendFour
     JoelTokensCollected = JoelTokensCollected + EarnMoneyAddendFour
     document.querySelector('#Joelone').textContent = Math.round(Joel);
+    Alice = Alice + 0.1
 });
 
 addendOne.addEventListener('keydown', (event) => {
@@ -84,6 +95,7 @@ addendOne.addEventListener('keydown', (event) => {
     }
     if (event.code === 'Space') {
         if (Joel > JoelCost) {
+            Alice = Alice + 10
             Joel = Joel - JoelCost
             EarnMoneyAddendMultiplier = EarnMoneyAddendMultiplier + 1
             EarnMoneyAddendFour = EarnMoneyAddend * EarnMoneyAddendMultiplier
@@ -145,6 +157,8 @@ Declan.addEventListener('click', () => {
 
         Joel = Joel - 50
 
+        Alice = Alice + 2
+
         DeclanBought = true
 
         buttonContainer.classList.add('DeclanBought')
@@ -170,6 +184,7 @@ Declan.addEventListener('click', () => {
         let lil = document.querySelector("#myNewButton")
 
         lil.addEventListener('click', () => {
+            Alice = Alice + 0.07
             if (Math.round(Joel) % 2 === 1) {
                 Joel = Joel + EarnMoneyAddendTwo
                 JoelTokensCollected = JoelTokensCollected + EarnMoneyAddendTwo
@@ -217,6 +232,7 @@ Declan.addEventListener('click', () => {
         onepieceTwo.addEventListener('click', () => {
             if (Joel > LilyCost) {
                 Joel = Joel - LilyCost
+                Alice = Alice + 7
                 EarnMoneyAddendTwo = EarnMoneyAddendTwo + 0.8
                 EarnMoneyAddendThree = EarnMoneyAddendThree + 1.2
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -299,6 +315,7 @@ Declan.addEventListener('click', () => {
 
         JawsTwo.addEventListener('click', () => {
             if (JawsPressed === false && Joel < 1440) {
+                Alice = Alice + 3
                 Joel = Joel * (2 + (EarnMoneyAddend / 2))
                 JawsPressed = true
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -423,6 +440,7 @@ let onepieceFour = document.querySelector("#Alice")
 
 onepieceFour.addEventListener('click', () => {
     if (Joel > AliceCost) {
+        Alice = Alice + 1.2
         Joel = Joel - AliceCost
         AliceClicked = AliceClicked + 1
         EarnMoneyAddend = EarnMoneyAddend + 0.1
@@ -470,7 +488,7 @@ onepieceFour.addEventListener('click', () => {
 });
 
 onepieceFour.addEventListener('keydown', (event) => {
-    if (event.code === KeyC) {
+    if (event.code === 'KeyC') {
         document.querySelector("#AlyssaRequest").textContent = "Joel Tokens to Click: " + AliceCost
         setTimeout(() => {
             document.querySelector("#AlyssaRequest").textContent = " "
@@ -487,6 +505,7 @@ let AlyssaOne = document.querySelector("#Alyssa")
 
 AlyssaOne.addEventListener('click', () => {
     if (Joel > AlyssaCost) {
+        Alice = Alice + 0.3 + (AlyssaCost / 100)
         Joel = Joel - AlyssaCost
         AlyssaTotal = AlyssaTotal + AlyssaCost
         document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -499,8 +518,15 @@ AlyssaOne.addEventListener('click', () => {
             Mistpersecond = Mistpersecond + 0.024
         };
         AlyssaBought = AlyssaBought + 1
-        MistElfy_Mult = MistElfy_Mult + 0.02
-        
+        if (AlyssaBought < 15) {
+            MistElfy_Mult = MistElfy_Mult + 0.02
+        } else {
+            MistElfy_Mult = MistElfy_Mult + 0.01
+        }
+        if (AlyssaBought === 45) {
+            MistElfy_Mult = MistElfy_Mult + 0.04
+        }
+
 
         //
 
@@ -528,6 +554,7 @@ AlyssaOne.addEventListener('click', () => {
             let MistElfy_ = MistElfy_Mult * AliceClicked
             Mist.addEventListener('click', () => {
                 Joel = Joel + (MistElfy_Mult * AliceClicked)
+                Alice = Alice + 0.15
                 JoelTokensCollected = JoelTokensCollected + (MistElfy_Mult * AliceClicked)
                 console.log("MistElfy!")
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -542,6 +569,7 @@ AlyssaOne.addEventListener('click', () => {
                     }, 2000);
                 }
             });
+            
         }
         if (AlyssaBought === 36 && AlyssaSecondButton === false) {
 
@@ -567,7 +595,7 @@ AlyssaOne.addEventListener('click', () => {
                         console.log("MistElfy!!!")
                         Joel = Joel + Mistpersecond
                         document.querySelector("#Joelone").textContent = Math.round(Joel)
-                    }, Joel)
+                    }, MistElfytimer)
                 }
             });
         }
@@ -589,18 +617,25 @@ AlyssaOne.addEventListener('click', () => {
             let SacrificeToggle = document.querySelector("#Sacrificeid")
 
             SacrificeToggle.addEventListener('click', () => {
-                if (Joel > (AlyssaTotal / 2) && Joel < AlyssaTotal && EarnMoneyAddendFour < (AlyssaTotal / 100) && EarnMoneyAddendThree < (AlyssaTotal / 100) && EarnMoneyAddendTwo < (AlyssaTotal / 100)) {
-                    Joel = 0
-                    if (Joel % 2 === 0) {
-                        Mistpersecond = (Mistpersecond * 1.2)
-                    }
-                    if (Joel % 2 === 1) {
-                        MistElfytimer = (MistElfytimer * 0.84)
+                if (AlyssaSacrificeCount > 10) {
+                    alert("Your sacrifice limit has been reached.")
+                } else {
+                    if (Joel > (AlyssaTotal / 2) && Joel < AlyssaTotal && EarnMoneyAddendFour < (AlyssaTotal / 100) && EarnMoneyAddendThree < (AlyssaTotal / 100) && EarnMoneyAddendTwo < (AlyssaTotal / 100) && AlyssaSacrificeCount < 10) {
+                        Joel = 0
+                        Alice = Alice + 40
+                        AlyssaSacrificeCount = AlyssaSacrificeCount + 1
+                        if (Joel % 2 === 0) {
+                            Mistpersecond = (Mistpersecond * 1.2)
+                        }
+                        if (Joel % 2 === 1) {
+                            MistElfytimer = (MistElfytimer * 0.84)
+                        }
+                    } else {
+                        alert("You are too overpowered.")
                     }
                 }
             });
         }
-
     } else {
         if (Math.round(Joel) % 12 === 0) {
             alert("Womp womp, you need more money.")
@@ -661,4 +696,22 @@ AlyssaOne.addEventListener('keydown', (event) => {
             document.querySelector('#AlyssaRequest').textContent = " "
         }, 2000);
     }
-});
+})
+
+
+
+let AliceInterval = null
+
+if (!AliceInterval) {
+    AliceInterval = setInterval(() => {
+                console.log("MistElfy")
+                document.querySelector("#Leveluptwo").textContent = "Level: " + Level
+                AliceforLevel = Alice - Alicespent
+                if (AliceforLevel > ToNextLevel) {
+                    Alicespent = Alicespent + AliceforLevel
+                    Level = Level + 1
+                    ToNextLevel = ToNextLevel * 1.2
+                    console.log("Lilly")
+                }
+        }, MistElfytimertwo)
+}
