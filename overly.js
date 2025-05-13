@@ -33,6 +33,7 @@ let AliceforLevel = 0
 let Alicespent = 0
 let Level = 1
 let ToNextLevel = 4
+let AliceTotal = 0
 
 //
 //
@@ -436,16 +437,32 @@ Declan.addEventListener('click', () => {
 //
 //
 
+Declan.addEventListener('keydown', (event) => {
+    if (event.code === KeyC && DeclanBought === false) {
+        document.querySelector("#AlyssaRequest").textContent = "Cost to Click: " + 50
+    }
+    if (event.code === KeyC && DeclanBought === true) {
+        document.querySelector("#AlyssaRequest").textContent = "Already Bought"
+    }
+})
+
+//
+//
+//
+//
+//
+
 let onepieceFour = document.querySelector("#Alice")
 
 onepieceFour.addEventListener('click', () => {
     if (Joel > AliceCost) {
+        AliceTotal = AliceTotal + AliceCost
         Alice = Alice + 1.2
         Joel = Joel - AliceCost
         AliceClicked = AliceClicked + 1
         EarnMoneyAddend = EarnMoneyAddend + 0.1
         EarnMoneyAddendFour = EarnMoneyAddend * EarnMoneyAddendMultiplier
-        AliceCost = AliceCost + (AliceCost / 36)
+        AliceCost = AliceCost + (AliceCost / 30)
         document.querySelector('#Joelone').textContent = Math.round(Joel);
     } else {
         if (Math.round(Joel) % 12 === 0) {
@@ -495,6 +512,7 @@ onepieceFour.addEventListener('keydown', (event) => {
         }, 2000);
     }
 });
+
 //
 //
 //
@@ -505,18 +523,22 @@ let AlyssaOne = document.querySelector("#Alyssa")
 
 AlyssaOne.addEventListener('click', () => {
     if (Joel > AlyssaCost) {
-        Alice = Alice + 0.3 + (AlyssaCost / 100)
+        Alice = Alice + 0.3 + (AlyssaTotal / 500)
         Joel = Joel - AlyssaCost
         AlyssaTotal = AlyssaTotal + AlyssaCost
         document.querySelector('#Joelone').textContent = Math.round(Joel);
         if (AlyssaBought < 30) {
             AlyssaCost = AlyssaCost + (AlyssaCost / 30)
-            Mistpersecond = Mistpersecond + 0.03
+            Mistpersecond = Mistpersecond + 0.02
         };
-        if (AlyssaBought > 31) {
+        if (AlyssaBought > 31 && AlyssaBought < 60) {
             AlyssaCost = AlyssaCost + (AlyssaCost / 24)
             Mistpersecond = Mistpersecond + 0.024
         };
+        if (AlyssaBought > 61) {
+            Mistpersecond = Mistpersecond + 0.03
+            AlyssaCost = AlyssaCost + (AlyssaCost / 21)
+        }
         AlyssaBought = AlyssaBought + 1
         if (AlyssaBought < 15) {
             MistElfy_Mult = MistElfy_Mult + 0.02
@@ -571,7 +593,7 @@ AlyssaOne.addEventListener('click', () => {
             });
             
         }
-        if (AlyssaBought === 36 && AlyssaSecondButton === false) {
+        if (AlyssaBought === 30 && AlyssaSecondButton === false) {
 
             AlyssaSecondButton = true
 
@@ -676,6 +698,12 @@ AlyssaOne.addEventListener('click', () => {
     }
 });
 
+//
+//
+//
+//
+//
+
 AlyssaOne.addEventListener('keydown', (event) => {
     if (event.code === 'KeyB') {
         document.querySelector('#AlyssaRequest').textContent = "Times Clicked: " + AlyssaBought
@@ -698,15 +726,27 @@ AlyssaOne.addEventListener('keydown', (event) => {
     }
 })
 
-
+//
+//
+//
+//
+//
 
 let AliceInterval = null
+let EarlyAlice = Alice
 
 if (!AliceInterval) {
     AliceInterval = setInterval(() => {
                 console.log("MistElfy")
-                document.querySelector("#Leveluptwo").textContent = "Level: " + Level
+                document.querySelector("#Leveluptwo").textContent = "EXP Level: " + Level
                 AliceforLevel = Alice - Alicespent
+                if (Alice !== EarlyAlice) {
+                    console.log("Alice!")
+                    EarlyAlice = Alice
+                }
+
+                //
+
                 if (AliceforLevel > ToNextLevel) {
                     Alicespent = Alicespent + AliceforLevel
                     Level = Level + 1
@@ -715,3 +755,6 @@ if (!AliceInterval) {
                 }
         }, MistElfytimertwo)
 }
+
+let expfill = document.querySelector("#expbarfill")
+

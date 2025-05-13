@@ -49,11 +49,7 @@ footer {
     margin-top: 0px;
 }
 
-#Leveluptwo {
-    font-size: large;
-    background-color: hsl(181, 25%, 40%);
-    padding-top: 1pc;
-}
+
 
 h1 {
     padding-bottom: 0.4pc;
@@ -106,12 +102,14 @@ h6 {
     flex-direction: row;
     justify-content: space-evenly;
 }
+
 .lifetime {
     background-color: hsl(181, 25%, 40%);
     padding-left: 10px;
     padding-right: 10px;
     max-height: 3pc;
 }
+
 .span {
     background-color: hsl(181, 25%, 40%);
     display: flex;
@@ -124,11 +122,38 @@ h6 {
 }
 
 span {
-    background-color: hsl(181, 25%, 40%);
     padding: 0;
     margin: 0;
 }
 
 #Joelone {
     background-color: black;
+}
+
+.ExpContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    border-radius: 0.1pc;
+    border-color: aliceblue;
+    border-style: solid;
+    border-width: 2px;
+    overflow: hidden;
+    margin: 5px auto;
+    padding: 0pc;
+    max-height: 1.5pc;
+}
+
+.expbarfill {
+    background-color: lime;
+    border-radius: 5px;
+    transition: --exp-width 0.3s ease-in-out;
+}
+
+#Leveluptwo {
+    font-size: 1pc;
+    text-decoration: aliceblue;
+    margin: 0;
+    padding-top: 0.6pc;
 }
