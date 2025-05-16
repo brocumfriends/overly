@@ -34,6 +34,7 @@ let Alicespent = 0
 let Level = 1
 let ToNextLevel = 4
 let AliceTotal = 0
+let Numrep = 5
 
 //
 //
@@ -150,7 +151,8 @@ addendOne.addEventListener('keydown', (event) => {
 //
 
 let Declan = document.querySelector("#Declan")
-
+let DeclanRepCount = 0
+let DeclanInterval = null
 let buttonContainer = document.querySelector("#buttonContainer")
 
 Declan.addEventListener('click', () => {
@@ -301,6 +303,15 @@ Declan.addEventListener('click', () => {
                 }
             }
         });
+
+        onepieceTwo.addEventListener('keydown', (event) => {
+            if (event.code === KeyC) {
+                document.querySelector("#AlyssaRequest").textContent = "Joel Tokens to Click: " + LilyCost
+                setInterval(() => {
+                    document.querySelector("#AlyssaRequest").textContent = " "
+                }, 2000);
+            }
+        })
 
         const Jaws = document.createElement("button");
 
@@ -591,7 +602,7 @@ AlyssaOne.addEventListener('click', () => {
                     }, 2000);
                 }
             });
-            
+
         }
         if (AlyssaBought === 30 && AlyssaSecondButton === false) {
 
@@ -734,27 +745,29 @@ AlyssaOne.addEventListener('keydown', (event) => {
 
 let AliceInterval = null
 let EarlyAlice = Alice
+let expfill = document.querySelector("#expbarfill")
+let AlicePercent = AliceforLevel / ToNextLevel
 
 if (!AliceInterval) {
     AliceInterval = setInterval(() => {
-                console.log("MistElfy")
-                document.querySelector("#Leveluptwo").textContent = "EXP Level: " + Level
-                AliceforLevel = Alice - Alicespent
-                if (Alice !== EarlyAlice) {
-                    console.log("Alice!")
-                    EarlyAlice = Alice
-                }
+        console.log("MistElfy")
+        document.querySelector("#Leveluptwo").textContent = "EXP Level: " + Level
+        AliceforLevel = Alice - Alicespent
+        AlicePercent = Math.round(100 * (AliceforLevel / ToNextLevel))
+        if (Alice !== EarlyAlice) {
+            console.log("Alice!")
+            EarlyAlice = Alice
+            let expbarfill = document.querySelector("#expbarfill")
+            expbarfill.style.width = AlicePercent + "%"
+        }
 
-                //
+        //
 
-                if (AliceforLevel > ToNextLevel) {
-                    Alicespent = Alicespent + AliceforLevel
-                    Level = Level + 1
-                    ToNextLevel = ToNextLevel * 1.2
-                    console.log("Lilly")
-                }
-        }, MistElfytimertwo)
-}
-
-let expfill = document.querySelector("#expbarfill")
-
+        if (AliceforLevel > ToNextLevel) {
+            Alicespent = Alicespent + AliceforLevel
+            Level = Level + 1
+            ToNextLevel = ToNextLevel * 1.2
+            console.log("Lilly")
+        }
+    }, MistElfytimertwo)
+} 

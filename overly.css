@@ -132,6 +132,7 @@ span {
 
 .ExpContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     background-color: black;
@@ -147,8 +148,9 @@ span {
 
 .expbarfill {
     background-color: lime;
-    border-radius: 5px;
-    transition: --exp-width 0.3s ease-in-out;
+    height: 10px;
+    width: 0%;
+    margin-top: 8px;
 }
 
 #Leveluptwo {
@@ -156,4 +158,11 @@ span {
     text-decoration: aliceblue;
     margin: 0;
     padding-top: 0.6pc;
+    transition: 700ms;
+}
+
+.Joeltwo {
+    transition: 700ms;
+    color: aliceblue;
+    font-size: 1pc;
 }
