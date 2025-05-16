@@ -307,7 +307,7 @@ Declan.addEventListener('click', () => {
         onepieceTwo.addEventListener('keydown', (event) => {
             if (event.code === KeyC) {
                 document.querySelector("#AlyssaRequest").textContent = "Joel Tokens to Click: " + LilyCost
-                setInterval(() => {
+                setTimeout(() => {
                     document.querySelector("#AlyssaRequest").textContent = " "
                 }, 2000);
             }
