@@ -745,8 +745,8 @@ AlyssaOne.addEventListener('keydown', (event) => {
 
 let AliceInterval = null
 let EarlyAlice = Alice
-let expfill = document.querySelector("#expbarfill")
 let AlicePercent = AliceforLevel / ToNextLevel
+let expbarfill = document.querySelector("#expbarfill")
 
 if (!AliceInterval) {
     AliceInterval = setInterval(() => {
@@ -757,17 +757,26 @@ if (!AliceInterval) {
         if (Alice !== EarlyAlice) {
             console.log("Alice!")
             EarlyAlice = Alice
-            let expbarfill = document.querySelector("#expbarfill")
             expbarfill.style.width = AlicePercent + "%"
         }
 
         //
 
         if (AliceforLevel > ToNextLevel) {
+            let newimageone = document.createElement('img')
+                newimageone.src = 'https://cdn.pixabay.com/photo/2022/06/09/13/06/level-up-7252551_640.png'
+                newimageone.height = 200;
+                newimageone.width = 200;
+                newimageone.id = 'newimagenew'
+                let newimageonecont = document.querySelector("#image")
+                newimageonecont.appendChild(newimageone);
             Alicespent = Alicespent + AliceforLevel
             Level = Level + 1
             ToNextLevel = ToNextLevel * 1.2
             console.log("Lilly")
+            setTimeout(() => {
+                newimageonecont.removeChild(newimageone);
+            }, 700);
         }
     }, MistElfytimertwo)
 } 
