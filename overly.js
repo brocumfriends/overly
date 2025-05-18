@@ -35,8 +35,10 @@ let Level = 1
 let ToNextLevel = 4
 let AliceTotal = 0
 let Numrep = 5
+let Emperorbutton = false
+let AliceUsable = Alice
+let PeakCaveCost = 120
 
-//
 //
 //
 //
@@ -65,8 +67,6 @@ onepieceFive.addEventListener('click', () => {
     Infinite = false
 });
 
-
-
 let addendOne = document.querySelector("#OnePieceOne")
 
 addendOne.addEventListener('click', () => {
@@ -74,6 +74,7 @@ addendOne.addEventListener('click', () => {
     JoelTokensCollected = JoelTokensCollected + EarnMoneyAddendFour
     document.querySelector('#Joelone').textContent = Math.round(Joel);
     Alice = Alice + 0.1
+    AliceUsable = AliceUsable + 0.1
 });
 
 addendOne.addEventListener('keydown', (event) => {
@@ -97,7 +98,8 @@ addendOne.addEventListener('keydown', (event) => {
     }
     if (event.code === 'Space') {
         if (Joel > JoelCost) {
-            Alice = Alice + 10
+            Alice = Alice + (JoelCost / 100)
+            AliceUsable = AliceUsable + (JoelCost / 100)
             Joel = Joel - JoelCost
             EarnMoneyAddendMultiplier = EarnMoneyAddendMultiplier + 1
             EarnMoneyAddendFour = EarnMoneyAddend * EarnMoneyAddendMultiplier
@@ -162,6 +164,8 @@ Declan.addEventListener('click', () => {
 
         Alice = Alice + 2
 
+        AliceUsable = AliceUsable + 2
+
         DeclanBought = true
 
         buttonContainer.classList.add('DeclanBought')
@@ -188,6 +192,7 @@ Declan.addEventListener('click', () => {
 
         lil.addEventListener('click', () => {
             Alice = Alice + 0.07
+            AliceUsable = AliceUsable + 0.07
             if (Math.round(Joel) % 2 === 1) {
                 Joel = Joel + EarnMoneyAddendTwo
                 JoelTokensCollected = JoelTokensCollected + EarnMoneyAddendTwo
@@ -236,6 +241,7 @@ Declan.addEventListener('click', () => {
             if (Joel > LilyCost) {
                 Joel = Joel - LilyCost
                 Alice = Alice + 7
+                AliceUsable = AliceUsable + 7
                 EarnMoneyAddendTwo = EarnMoneyAddendTwo + 0.8
                 EarnMoneyAddendThree = EarnMoneyAddendThree + 1.2
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -328,6 +334,7 @@ Declan.addEventListener('click', () => {
         JawsTwo.addEventListener('click', () => {
             if (JawsPressed === false && Joel < 1440) {
                 Alice = Alice + 3
+                AliceUsable = AliceUsable + 3
                 Joel = Joel * (2 + (EarnMoneyAddend / 2))
                 JawsPressed = true
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -469,6 +476,7 @@ onepieceFour.addEventListener('click', () => {
     if (Joel > AliceCost) {
         AliceTotal = AliceTotal + AliceCost
         Alice = Alice + 1.2
+        AliceUsable = AliceUsable + 1.2
         Joel = Joel - AliceCost
         AliceClicked = AliceClicked + 1
         EarnMoneyAddend = EarnMoneyAddend + 0.1
@@ -535,6 +543,7 @@ let AlyssaOne = document.querySelector("#Alyssa")
 AlyssaOne.addEventListener('click', () => {
     if (Joel > AlyssaCost) {
         Alice = Alice + 0.3 + (AlyssaTotal / 500)
+        AliceUsable = AliceUsable + 0.3 + (AlyssaTotal / 500)
         Joel = Joel - AlyssaCost
         AlyssaTotal = AlyssaTotal + AlyssaCost
         document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -587,7 +596,8 @@ AlyssaOne.addEventListener('click', () => {
             let MistElfy_ = MistElfy_Mult * AliceClicked
             Mist.addEventListener('click', () => {
                 Joel = Joel + (MistElfy_Mult * AliceClicked)
-                Alice = Alice + 0.15
+                Alice = Alice + 0.15 + (AlyssaTotal / 1000)
+                AliceUsable = AliceUsable + 0.15 + (AlyssaTotal / 1000)
                 JoelTokensCollected = JoelTokensCollected + (MistElfy_Mult * AliceClicked)
                 console.log("MistElfy!")
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -637,7 +647,7 @@ AlyssaOne.addEventListener('click', () => {
 
             const Sacrificebutton = document.createElement("button");
 
-            Sacrificebutton.textContent = "Pursue your Sacrifice!";
+            Sacrificebutton.textContent = "Ben";
 
             Sacrificebutton.id = "Sacrificeid";
 
@@ -656,6 +666,7 @@ AlyssaOne.addEventListener('click', () => {
                     if (Joel > (AlyssaTotal / 2) && Joel < AlyssaTotal && EarnMoneyAddendFour < (AlyssaTotal / 100) && EarnMoneyAddendThree < (AlyssaTotal / 100) && EarnMoneyAddendTwo < (AlyssaTotal / 100) && AlyssaSacrificeCount < 10) {
                         Joel = 0
                         Alice = Alice + 40
+                        AliceUsable = 10
                         AlyssaSacrificeCount = AlyssaSacrificeCount + 1
                         if (Joel % 2 === 0) {
                             Mistpersecond = (Mistpersecond * 1.2)
@@ -666,6 +677,30 @@ AlyssaOne.addEventListener('click', () => {
                     } else {
                         alert("You are too overpowered.")
                     }
+                }
+            });
+        }
+        if (AlyssaBought === 80 && Emperorbutton === false) {
+            Emperorbutton = true
+
+            const EmperorAppend = document.createElement("button")
+
+            EmperorAppend.textContent = "PeakCave"
+
+            EmperorAppend.id = "Four-id"
+
+            const AlyssaPeakCont = document.getElementById("AlyssabContainer");
+
+            AlyssaPeakCont.appendChild(EmperorAppend)
+
+            let PeakCaveListener = document.querySelector("#Four-id")
+
+            PeakCaveListener.addEventListener('click', () => {
+                AliceUsable = AliceUsable - (PeakCaveCost)
+                if (Joel % 2 === 0) {
+                    Mistpersecond = Mistpersecond * 1.12
+                } else {
+                    MistElfytimer = MistElfytimer * 0.88
                 }
             });
         }
@@ -766,7 +801,7 @@ if (!AliceInterval) {
             let newimageone = document.createElement('img')
                 newimageone.src = 'https://cdn.pixabay.com/photo/2022/06/09/13/06/level-up-7252551_640.png'
                 newimageone.height = 200;
-                newimageone.width = 200;
+                newimageone.width = 250;
                 newimageone.id = 'newimagenew'
                 let newimageonecont = document.querySelector("#image")
                 newimageonecont.appendChild(newimageone);
@@ -779,4 +814,4 @@ if (!AliceInterval) {
             }, 700);
         }
     }, MistElfytimertwo)
-} 
+}

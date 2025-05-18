@@ -56,15 +56,23 @@ h1 {
     padding-top: 1pc;
     background-color: hsl(181, 25%, 40%);
     margin: 0;
-    color: lightgray
+    color: lightgray;
 }
 
 h6 {
-    padding-bottom: 2.4pc;
+    padding-bottom: 1pc;
     padding-top: 0.4pc;
     background-color: hsl(181, 25%, 40%);
     margin: 0;
     text-indent: 0;
+    color: lightgray;
+}
+
+a {
+    font-size: 10px;
+    background-color: hsl(181, 25%, 40%);
+    padding-bottom: 0.4pc;
+    font-weight: bold;
     color: lightgray;
 }
 
@@ -165,4 +173,14 @@ span {
     transition: 700ms;
     color: aliceblue;
     font-size: 1pc;
+}
+
+#three {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#Aria {
+    margin-bottom: 0;
+    padding-bottom: 0;
 }

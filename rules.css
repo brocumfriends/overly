@@ -1,0 +1,51 @@
+* {
+    color: aliceblue;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: hsl(181, 25%, 40%);
+    display: flex;
+    justify-content: center;
+    padding: 1pc;
+}
+
+.one {
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 2px;
+    margin-bottom: 0.5pc;
+}
+
+.two {
+    margin-bottom: 0.5pc;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+li {
+    margin-left: 2pc;
+    margin-bottom: 0.3pc;
+}
+
+.three {
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: hsl(181, 25%, 40%);
+    margin: 0;
+    padding-top: 1pc;
+    padding-bottom: 1pc;
+    text-indent: 1pc;
+}
+
+a {
+    background-color: hsl(181, 25%, 40%);
+}
