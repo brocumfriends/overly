@@ -566,7 +566,7 @@ AlyssaOne.addEventListener('click', () => {
         AlyssaBought = AlyssaBought + 1
         if (AlyssaBought < 15) {
             MistElfy_Mult = MistElfy_Mult + 0.02
-        } 
+        }
         if (AlyssaBought < 60 && AlyssaBought > 15) {
             MistElfy_Mult = MistElfy_Mult + 0.01
         }
@@ -603,13 +603,10 @@ AlyssaOne.addEventListener('click', () => {
             let MistElfy_ = MistElfy_Mult * AliceClicked
             Mist.addEventListener('click', () => {
                 Joel = Joel + (MistElfy_Mult * AliceClicked)
-                if (AlyssaTotal < 1000) {
-                    Alice = Alice + 0.15 + (AlyssaTotal / 1000)
-                    AliceUsable = AliceUsable + 0.15 + (AlyssaTotal / 1000)
-                } else {
-                    Alice = Alice + 0.15 + (AlyssaTotal / 2000)
-                    AliceUsable = AliceUsable + 0.15 + (AlyssaTotal / 2000)
-                }
+
+                Alice = Alice + 0.15 + (AlyssaCost / 1000)
+                AliceUsable = AliceUsable + 0.15 + (AlyssaCost / 1000)
+
                 JoelTokensCollected = JoelTokensCollected + (MistElfy_Mult * AliceClicked)
                 console.log("MistElfy!")
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -851,11 +848,12 @@ if (!AliceInterval) {
         console.log("MistElfy")
         document.querySelector("#Leveluptwo").textContent = "EXP Level: " + Level
         AliceforLevel = Alice - Alicespent
-        AlicePercent = Math.round(100 * (AliceforLevel / ToNextLevel))
+        AlicePercent = Math.round(1000 * (AliceforLevel / ToNextLevel))
+        AlicePercentTwo = AlicePercent / 10
         if (Alice !== EarlyAlice) {
             console.log("Alice!")
             EarlyAlice = Alice
-            expbarfill.style.width = AlicePercent + "%"
+            expbarfill.style.width = AlicePercentTwo + "%"
         }
 
         //
