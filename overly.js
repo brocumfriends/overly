@@ -479,8 +479,8 @@ let onepieceFour = document.querySelector("#Alice")
 onepieceFour.addEventListener('click', () => {
     if (Joel > AliceCost) {
         AliceTotal = AliceTotal + AliceCost
-        Alice = Alice + 0.9 + (AliceCost / 1000)
-        AliceUsable = AliceUsable + 0.9 + (AliceCost / 1000)
+        Alice = Alice + (AliceCost / 100)
+        AliceUsable = AliceUsable + (AliceCost / 100)
         Joel = Joel - AliceCost
         AliceClicked = AliceClicked + 1
         EarnMoneyAddend = EarnMoneyAddend + 0.1
