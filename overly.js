@@ -37,7 +37,7 @@ let AliceTotal = 0
 let Numrep = 5
 let Emperorbutton = false
 let AliceUsable = Alice
-let PeakCaveCost = 120
+let PeakCaveCost = 4800
 
 //
 //
@@ -73,7 +73,11 @@ addendOne.addEventListener('click', () => {
     Joel = Joel + EarnMoneyAddendFour
     JoelTokensCollected = JoelTokensCollected + EarnMoneyAddendFour
     document.querySelector('#Joelone').textContent = Math.round(Joel);
-    Alice = Alice + 0.1
+    if (EarnMoneyAddend < 12) {
+        Alice = Alice + 0.1
+    } else {
+        Alice = Alice + (EarnMoneyAddendFour / 120)
+    }
     AliceUsable = AliceUsable + 0.1
 });
 
@@ -475,8 +479,8 @@ let onepieceFour = document.querySelector("#Alice")
 onepieceFour.addEventListener('click', () => {
     if (Joel > AliceCost) {
         AliceTotal = AliceTotal + AliceCost
-        Alice = Alice + 1.2
-        AliceUsable = AliceUsable + 1.2
+        Alice = Alice + 0.9 + (AliceCost / 1000)
+        AliceUsable = AliceUsable + 0.9 + (AliceCost / 1000)
         Joel = Joel - AliceCost
         AliceClicked = AliceClicked + 1
         EarnMoneyAddend = EarnMoneyAddend + 0.1
@@ -542,8 +546,8 @@ let AlyssaOne = document.querySelector("#Alyssa")
 
 AlyssaOne.addEventListener('click', () => {
     if (Joel > AlyssaCost) {
-        Alice = Alice + 0.3 + (AlyssaTotal / 500)
-        AliceUsable = AliceUsable + 0.3 + (AlyssaTotal / 500)
+        Alice = Alice + 0.3 + (AlyssaTotal / 200)
+        AliceUsable = AliceUsable + 0.3 + (AlyssaTotal / 200)
         Joel = Joel - AlyssaCost
         AlyssaTotal = AlyssaTotal + AlyssaCost
         document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -556,19 +560,22 @@ AlyssaOne.addEventListener('click', () => {
             Mistpersecond = Mistpersecond + 0.024
         };
         if (AlyssaBought > 61) {
-            Mistpersecond = Mistpersecond + 0.03
+            Mistpersecond = Mistpersecond + 0.04
             AlyssaCost = AlyssaCost + (AlyssaCost / 21)
         }
         AlyssaBought = AlyssaBought + 1
         if (AlyssaBought < 15) {
             MistElfy_Mult = MistElfy_Mult + 0.02
-        } else {
+        } 
+        if (AlyssaBought < 60 && AlyssaBought > 15) {
             MistElfy_Mult = MistElfy_Mult + 0.01
         }
-        if (AlyssaBought === 45) {
-            MistElfy_Mult = MistElfy_Mult + 0.04
+        if (AlyssaBought > 60 && AlyssaBought < 112) {
+            MistElfy_Mult = MistElfy_Mult + 0.024
         }
-
+        if (AlyssaBought > 112) {
+            MistElfy_Mult = MistElfy_Mult + 0.045
+        }
 
         //
 
@@ -596,8 +603,13 @@ AlyssaOne.addEventListener('click', () => {
             let MistElfy_ = MistElfy_Mult * AliceClicked
             Mist.addEventListener('click', () => {
                 Joel = Joel + (MistElfy_Mult * AliceClicked)
-                Alice = Alice + 0.15 + (AlyssaTotal / 1000)
-                AliceUsable = AliceUsable + 0.15 + (AlyssaTotal / 1000)
+                if (AlyssaTotal < 1000) {
+                    Alice = Alice + 0.15 + (AlyssaTotal / 1000)
+                    AliceUsable = AliceUsable + 0.15 + (AlyssaTotal / 1000)
+                } else {
+                    Alice = Alice + 0.15 + (AlyssaTotal / 2000)
+                    AliceUsable = AliceUsable + 0.15 + (AlyssaTotal / 2000)
+                }
                 JoelTokensCollected = JoelTokensCollected + (MistElfy_Mult * AliceClicked)
                 console.log("MistElfy!")
                 document.querySelector('#Joelone').textContent = Math.round(Joel);
@@ -680,7 +692,7 @@ AlyssaOne.addEventListener('click', () => {
                 }
             });
         }
-        if (AlyssaBought === 80 && Emperorbutton === false) {
+        if (AlyssaBought === 90 && Emperorbutton === false) {
             Emperorbutton = true
 
             const EmperorAppend = document.createElement("button")
@@ -696,11 +708,61 @@ AlyssaOne.addEventListener('click', () => {
             let PeakCaveListener = document.querySelector("#Four-id")
 
             PeakCaveListener.addEventListener('click', () => {
-                AliceUsable = AliceUsable - (PeakCaveCost)
-                if (Joel % 2 === 0) {
-                    Mistpersecond = Mistpersecond * 1.12
+                if (Joel > PeakCaveCost) {
+                    Joel = Joel - (PeakCaveCost)
+                    PeakCaveCost = PeakCaveCost * 1.2
+                    if (Joel % 2 === 0) {
+                        Mistpersecond = Mistpersecond + 0.1
+                    } else {
+                        MistElfytimer = MistElfytimer * 0.936
+                    }
                 } else {
-                    MistElfytimer = MistElfytimer * 0.88
+                    if (Math.round(Joel) % 12 === 0) {
+                        alert("Womp womp, you need more money.")
+                    }
+                    if (Math.round(Joel) % 12 === 1) {
+                        alert("You are too poor.")
+                    }
+                    if (Math.round(Joel) % 12 === 2) {
+                        alert("Sorry, you don't really get the 'cost' thing.")
+                    }
+                    if (Math.round(Joel) % 12 === 3) {
+                        alert("GET YOURSELF MORE MONEY!")
+                    }
+                    if (Math.round(Joel) % 12 === 4) {
+                        alert("Sir or Madam, you need more money")
+                    }
+                    if (Math.round(Joel) % 12 === 5) {
+                        alert("Get a job, knave.")
+                    }
+                    if (Math.round(Joel) % 12 === 6) {
+                        alert("Please come back with a full piggy bank.")
+                    }
+                    if (Math.round(Joel) % 12 === 7) {
+                        alert("Don't be such a cheapskate.")
+                    }
+                    if (Math.round(Joel) % 12 === 8) {
+                        alert("You're living on peanuts. Get a job.")
+                    }
+                    if (Math.round(Joel) % 12 === 9) {
+                        alert("I'm sorry, but you kinda forgot to bring your wallet.")
+                    }
+                    if (Math.round(Joel) % 12 === 10) {
+                        alert("You've gone broke. Womp womp. Just womp womp.")
+                    }
+                    if (Math.round(Joel) % 12 === 11) {
+                        alert("Excuse me, your pockets are light.")
+                    }
+                }
+            });
+
+            PeakCaveListener.addEventListener('keydown', (event) => {
+                if (event.code === 'KeyC') {
+                    document.querySelector("#AlyssaRequest").textContent = "Joel Tokens to Click: " + PeakCaveCost
+                    setTimeout(() => {
+                        document.querySelector("#AlyssaRequest").textContent = " "
+
+                    });
                 }
             });
         }
@@ -782,6 +844,7 @@ let AliceInterval = null
 let EarlyAlice = Alice
 let AlicePercent = AliceforLevel / ToNextLevel
 let expbarfill = document.querySelector("#expbarfill")
+let sound = document.querySelector("#soundone")
 
 if (!AliceInterval) {
     AliceInterval = setInterval(() => {
@@ -799,16 +862,17 @@ if (!AliceInterval) {
 
         if (AliceforLevel > ToNextLevel) {
             let newimageone = document.createElement('img')
-                newimageone.src = 'https://cdn.pixabay.com/photo/2022/06/09/13/06/level-up-7252551_640.png'
-                newimageone.height = 200;
-                newimageone.width = 250;
-                newimageone.id = 'newimagenew'
-                let newimageonecont = document.querySelector("#image")
-                newimageonecont.appendChild(newimageone);
+            newimageone.src = 'https://cdn.pixabay.com/photo/2022/06/09/13/06/level-up-7252551_640.png'
+            newimageone.height = 200;
+            newimageone.width = 250;
+            newimageone.id = 'newimagenew'
+            let newimageonecont = document.querySelector("#image")
+            newimageonecont.appendChild(newimageone);
             Alicespent = Alicespent + AliceforLevel
             Level = Level + 1
             ToNextLevel = ToNextLevel * 1.2
             console.log("Lilly")
+            sound.play()
             setTimeout(() => {
                 newimageonecont.removeChild(newimageone);
             }, 700);

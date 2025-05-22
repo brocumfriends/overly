@@ -184,3 +184,8 @@ span {
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+audio {
+    max-width: 0px;
+    max-height: 0px;
+}
