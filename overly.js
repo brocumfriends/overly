@@ -1,4 +1,4 @@
-let Joel = 0
+let Joel = 1000000
 let EarnMoneyAddend = 1
 let EarnMoneyAddendTwo = 1
 let EarnMoneyAddendThree = 3
@@ -38,6 +38,7 @@ let Numrep = 5
 let Emperorbutton = false
 let AliceUsable = Alice
 let PeakCaveCost = 4800
+let Nodes = false
 
 //
 //
@@ -573,10 +574,12 @@ AlyssaOne.addEventListener('click', () => {
         if (AlyssaBought > 60 && AlyssaBought < 112) {
             MistElfy_Mult = MistElfy_Mult + 0.024
         }
-        if (AlyssaBought > 112) {
+        if (AlyssaBought > 112 && AlyssaBought < 140) {
             MistElfy_Mult = MistElfy_Mult + 0.045
         }
-
+        if (AlyssaBought > 140) {
+            MistElfy_Mult = MistElfy_Mult + 0.1
+        }
         //
 
         if (AlyssaBought === 15 && AlyssaFirstButton === false) {
@@ -617,7 +620,7 @@ AlyssaOne.addEventListener('click', () => {
                     document.querySelector("#AlyssaRequest").textContent = "Per Click: " + MistElfy_
                     console.log("MistElfy!!")
                     setTimeout(() => {
-                        document.querySelector("AlyssaRequest").textContent = " "
+                        document.querySelector("#AlyssaRequest").textContent = " "
                     }, 2000);
                 }
             });
@@ -646,6 +649,7 @@ AlyssaOne.addEventListener('click', () => {
                     mistIntervalone = setInterval(() => {
                         console.log("MistElfy!!!")
                         Joel = Joel + Mistpersecond
+                        JoelTokensCollected = JoelTokensCollected + Mistpersecond
                         document.querySelector("#Joelone").textContent = Math.round(Joel)
                     }, MistElfytimer)
                 }
@@ -758,8 +762,8 @@ AlyssaOne.addEventListener('click', () => {
                     document.querySelector("#AlyssaRequest").textContent = "Joel Tokens to Click: " + PeakCaveCost
                     setTimeout(() => {
                         document.querySelector("#AlyssaRequest").textContent = " "
-
-                    });
+ 
+                    }, 2000);
                 }
             });
         }
@@ -846,10 +850,11 @@ let sound = document.querySelector("#soundone")
 if (!AliceInterval) {
     AliceInterval = setInterval(() => {
         console.log("MistElfy")
+        document.querySelector('#Joelone').textContent = Math.round(Joel);
         document.querySelector("#Leveluptwo").textContent = "EXP Level: " + Level
         AliceforLevel = Alice - Alicespent
-        AlicePercent = Math.round(1000 * (AliceforLevel / ToNextLevel))
-        AlicePercentTwo = AlicePercent / 10
+        AlicePercent = Math.round(10000 * (AliceforLevel / ToNextLevel))
+        let AlicePercentTwo = AlicePercent / 100
         if (Alice !== EarlyAlice) {
             console.log("Alice!")
             EarlyAlice = Alice
@@ -875,5 +880,29 @@ if (!AliceInterval) {
                 newimageonecont.removeChild(newimageone);
             }, 700);
         }
+
     }, MistElfytimertwo)
 }
+
+let intervalNull = null
+
+//if (!intervalNull) {
+ //   intervalNull = setInterval(() => {
+//        if (JoelTokensCollected > 1000000 && Nodes === false) {
+//
+//            Nodes = true
+//
+//            document.querySelector("#Nodes").style.height = 500 + "px"
+//
+//            const Nodeone = document.createElement("button")
+//
+//            Nodeone.id = "intervalNullid"
+//
+//            Nodeone.className = "NodesClass"
+//
+////            const Nodecontainer = document.querySelector("#Nodes")
+//
+//            Nodecontainer.appendChild(Nodeone)
+//        }
+//    }, MistElfytimertwo);
+//}

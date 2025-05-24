@@ -189,3 +189,18 @@ audio {
     max-width: 0px;
     max-height: 0px;
 }
+
+#Nodes {
+    height: 0;
+    padding: 0;
+}
+
+.NodesClass {
+    height: 10px;
+    width: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: aliceblue;
+    border-radius: 1000pc;
+    box-shadow: 20px;
+}
