@@ -1,4 +1,4 @@
-let Joel = 1000000
+let Joel = 1000000000
 let EarnMoneyAddend = 1
 let EarnMoneyAddendTwo = 1
 let EarnMoneyAddendThree = 3
@@ -560,7 +560,7 @@ AlyssaOne.addEventListener('click', () => {
             AlyssaCost = AlyssaCost + (AlyssaCost / 24)
             Mistpersecond = Mistpersecond + 0.024
         };
-        if (AlyssaBought > 61) {
+        if (AlyssaBought > 61 && AlyssaBought < 112) {
             Mistpersecond = Mistpersecond + 0.04
             AlyssaCost = AlyssaCost + (AlyssaCost / 21)
         }
@@ -576,9 +576,11 @@ AlyssaOne.addEventListener('click', () => {
         }
         if (AlyssaBought > 112 && AlyssaBought < 140) {
             MistElfy_Mult = MistElfy_Mult + 0.045
+            AlyssaCost = AlyssaCost + (AlyssaCost / 20)
         }
         if (AlyssaBought > 140) {
             MistElfy_Mult = MistElfy_Mult + 0.1
+            AlyssaCost = AlyssaCost + (AlyssaCost / 18)
         }
         //
 
