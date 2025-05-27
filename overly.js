@@ -1,4 +1,4 @@
-let Joel = 1000000000
+let Joel = 0
 let EarnMoneyAddend = 1
 let EarnMoneyAddendTwo = 1
 let EarnMoneyAddendThree = 3
@@ -39,7 +39,13 @@ let Emperorbutton = false
 let AliceUsable = Alice
 let PeakCaveCost = 4800
 let Nodes = false
+let JohnBought = false
+let SheafferBought = false
+let SheafferCost = 14000
+let DeclanEarnMoneyAddend = 100
+let DeclanClickedCount = 0
 
+//
 //
 //
 //
@@ -65,7 +71,40 @@ onepieceFive.addEventListener('click', () => {
     EarnOn = false
     SkipOn = false
     JawsPressed = false
-    Infinite = false
+    onepieceFive = document.querySelector("#OnePieceTwo")
+    Lifetimevar = document.querySelector("#lifetime")
+    AlyssaCost = 3
+    AlyssaBought = 0
+    AlyssaTotal = 0
+    AlyssaFirstButton = false
+    AlyssaSecondButton = false
+    AliceClicked = 0
+    MistElfy_Mult = 0
+    JoelTokensCollected = 0
+    LilyCost = 750
+    Mistpersecond = 0
+    MistElfytimer = 1000
+    MistElfytimertwo = 140
+    AlyssaSacrifice = false
+    AlyssaSacrificeCount = 0
+    Infinite = true
+    AlyssaButtonFour = false
+    Alice = 0
+    AliceforLevel = 0
+    Alicespent = 0
+    Level = 1
+    ToNextLevel = 4
+    AliceTotal = 0
+    Numrep = 5
+    Emperorbutton = false
+    AliceUsable = Alice
+    PeakCaveCost = 4800
+    Nodes = false
+    JohnBought = false
+    SheafferBought = false
+    SheafferCost = 14000
+    DeclanEarnMoneyAddend = 100
+    DeclanClickedCount = 0
 });
 
 let addendOne = document.querySelector("#OnePieceOne")
@@ -166,6 +205,8 @@ Declan.addEventListener('click', () => {
     if (Joel > 49 && DeclanBought === false) {
 
         Joel = Joel - 50
+
+        Declan.textContent = "John"
 
         Alice = Alice + 2
 
@@ -387,34 +428,124 @@ Declan.addEventListener('click', () => {
         //
         //
         //
+    }
+    if (Joel > 5260 && DeclanBought === true && JohnBought === false && SheafferBought === false) {
+        JohnBought = true
 
-        onepieceFive.addEventListener('click', () => {
+        Joel = Joel - 5260
+
+        Declan.textContent = "Sheaffer"
+
+        let newimageone = document.createElement('img')
+        newimageone.src = 'https://www.pngall.com/wp-content/uploads/14/Poop-PNG-Pic.png'
+        newimageone.height = 200;
+        newimageone.width = 200;
+        newimageone.id = 'newimagenewone'
+        let newimagecontone = document.querySelector("#image")
+        newimagecontone.appendChild(newimageone);
+
+        setTimeout(() => {
+            newimagecont.removeChild(newimageone)
+        }, 3000);
+    }
+    if (Joel > 72080 && DeclanBought === true && JohnBought === true && SheafferBought === false) {
+
+        SheafferBought = true
+
+        let SergeyButton = document.createElement("button")
+
+        SergeyButton.textContent = "Sergey!"
+
+        SergeyButton.id = "Sergeyid"
+
+        let SergeyButtonCont = document.querySelector("#buttonContainer")
+
+        SergeyButtonCont.appendChild(SergeyButton)
+
+        SergeyButton.addEventListener('click', () => {
             Joel = 0
-            EarnMoneyAddend = 1
-            EarnMoneyAddendTwo = 1
-            EarnMoneyAddendThree = 3
-            EarnMoneyAddendFour = EarnMoneyAddend
-            DeclanBought = false
-            JoelCost = 550
-            EarnMoneyAddendMultiplier = 1
-            AliceCost = 75
-            EarnOn = false
-            SkipOn = false
-            JawsPressed = false
-            onepieceFive = document.querySelector("#OnePieceTwo")
-
-
-            let skipbutton = document.querySelector("#myNewButton")
-            skipbutton.remove()
-
-            let Lily_button = document.querySelector("#Lily")
-            Lily_button.remove()
-
-            let Jaws_button = document.querySelector("#Jaws")
-            Jaws_button.remove()
         });
-
-    } else {
+    }
+    if (SheafferBought === true) {
+        Joel = Joel + DeclanEarnMoneyAddend
+    }
+    if (Joel < 49 && DeclanBought === false) {
+        if (Math.round(Joel) % 12 === 0) {
+            alert("Womp womp, you need more money.")
+        }
+        if (Math.round(Joel) % 12 === 1) {
+            alert("You are too poor.")
+        }
+        if (Math.round(Joel) % 12 === 2) {
+            alert("Sorry, you don't really get the 'cost' thing.")
+        }
+        if (Math.round(Joel) % 12 === 3) {
+            alert("GET YOURSELF MORE MONEY!")
+        }
+        if (Math.round(Joel) % 12 === 4) {
+            alert("Sir or Madam, you need more money")
+        }
+        if (Math.round(Joel) % 12 === 5) {
+            alert("Get a job, knave.")
+        }
+        if (Math.round(Joel) % 12 === 6) {
+            alert("Please come back with a full piggy bank.")
+        }
+        if (Math.round(Joel) % 12 === 7) {
+            alert("Don't be such a cheapskate.")
+        }
+        if (Math.round(Joel) % 12 === 8) {
+            alert("You're living on peanuts. Get a job.")
+        }
+        if (Math.round(Joel) % 12 === 9) {
+            alert("I'm sorry, but you kinda forgot to bring your wallet.")
+        }
+        if (Math.round(Joel) % 12 === 10) {
+            alert("You've gone broke. Come back with some more money.")
+        }
+        if (Math.round(Joel) % 12 === 11) {
+            alert("Excuse me, your pockets are light.")
+        }
+    }
+    if (Joel < 1259 && Joel > 51 && JohnBought === false && DeclanBought === true) {
+        if (Math.round(Joel) % 12 === 0) {
+            alert("Womp womp, you need more money.")
+        }
+        if (Math.round(Joel) % 12 === 1) {
+            alert("You are too poor.")
+        }
+        if (Math.round(Joel) % 12 === 2) {
+            alert("Sorry, you don't really get the 'cost' thing.")
+        }
+        if (Math.round(Joel) % 12 === 3) {
+            alert("GET YOURSELF MORE MONEY!")
+        }
+        if (Math.round(Joel) % 12 === 4) {
+            alert("Sir or Madam, you need more money")
+        }
+        if (Math.round(Joel) % 12 === 5) {
+            alert("Get a job, knave.")
+        }
+        if (Math.round(Joel) % 12 === 6) {
+            alert("Please come back with a full piggy bank.")
+        }
+        if (Math.round(Joel) % 12 === 7) {
+            alert("Don't be such a cheapskate.")
+        }
+        if (Math.round(Joel) % 12 === 8) {
+            alert("You're living on peanuts. Get a job.")
+        }
+        if (Math.round(Joel) % 12 === 9) {
+            alert("I'm sorry, but you kinda forgot to bring your wallet.")
+        }
+        if (Math.round(Joel) % 12 === 10) {
+            alert("You've gone broke. Come back with some more money.")
+        }
+        if (Math.round(Joel) % 12 === 11) {
+            alert("Excuse me, your pockets are light.")
+        }
+    }
+    if (Joel < 72079 && Joel > 1261 && SheafferBought === false && DeclanBought === true && JohnBought === true) {
         if (Math.round(Joel) % 12 === 0) {
             alert("Womp womp, you need more money.")
         }
@@ -461,13 +592,41 @@ Declan.addEventListener('click', () => {
 //
 
 Declan.addEventListener('keydown', (event) => {
-    if (event.code === KeyC && DeclanBought === false) {
-        document.querySelector("#AlyssaRequest").textContent = "Cost to Click: " + 50
+    if (event.code === 'KeyC' && DeclanBought === false) {
+        document.querySelector("#AlyssaRequest").textContent = "Cost to Click: 50"
+        setTimeout(() => {
+            document.querySelector("#AlyssaRequest").textContent = " "
+        }, 2000);
     }
-    if (event.code === KeyC && DeclanBought === true) {
-        document.querySelector("#AlyssaRequest").textContent = "Already Bought"
+    if (event.code === 'KeyC' && SheafferBought === true) {
+        document.querySelector("#AlyssaRequest").textContent = "Cost to Upgrade: " + Math.round(SheafferCost)
+        setTimeout(() => {
+            document.querySelector("#AlyssaRequest").textContent = " "
+        }, 2000);
     }
-})
+    if (event.code === 'KeyC' && DeclanBought === true && JohnBought === false && SheafferBought === false) {
+        document.querySelector("#AlyssaRequest").textContent = "Cost to Click: 1260"
+        setTimeout(() => {
+            document.querySelector("#AlyssaRequest").textContent = " "
+        }, 2000);
+    }
+    if (event.code === 'KeyC' && DeclanBought === true && JohnBought === true && SheafferBought === false) {
+        document.querySelector("#AlyssaRequest").textContent = "Cost to Click: 72080"
+        setTimeout(() => {
+            document.querySelector("#AlyssaRequest").textContent = " "
+        }, 2000);
+    }
+    if (event.code === 'Space' && SheafferBought === true && Joel > SheafferCost) {
+        Joel = Joel - SheafferCost
+        DeclanClickedCount = DeclanClickedCount + 1
+        if (DeclanClickedCount % 5 === 0 && DeclanClickedCount !== 0) {
+            DeclanEarnMoneyAddend = DeclanEarnMoneyAddend + 1000
+        } else {
+            DeclanEarnMoneyAddend = DeclanEarnMoneyAddend + 100
+        }
+        SheafferCost = SheafferCost * 1.4
+    }
+});
 
 //
 //
@@ -619,7 +778,7 @@ AlyssaOne.addEventListener('click', () => {
             Mist.addEventListener('keydown', (event) => {
                 if (event.code === 'KeyP') {
                     MistElfy_ = MistElfy_Mult * AliceClicked
-                    document.querySelector("#AlyssaRequest").textContent = "Per Click: " + MistElfy_
+                    document.querySelector("#AlyssaRequest").textContent = "Per Click: " + Math.round(MistElfy_)
                     console.log("MistElfy!!")
                     setTimeout(() => {
                         document.querySelector("#AlyssaRequest").textContent = " "
@@ -764,7 +923,7 @@ AlyssaOne.addEventListener('click', () => {
                     document.querySelector("#AlyssaRequest").textContent = "Joel Tokens to Click: " + PeakCaveCost
                     setTimeout(() => {
                         document.querySelector("#AlyssaRequest").textContent = " "
- 
+
                     }, 2000);
                 }
             });
@@ -888,8 +1047,9 @@ if (!AliceInterval) {
 
 let intervalNull = null
 
-//if (!intervalNull) {
- //   intervalNull = setInterval(() => {
+//
+// if (!intervalNull) {
+//   intervalNull = setInterval(() => {
 //        if (JoelTokensCollected > 1000000 && Nodes === false) {
 //
 //            Nodes = true
@@ -908,3 +1068,4 @@ let intervalNull = null
 //        }
 //    }, MistElfytimertwo);
 //}
+//
