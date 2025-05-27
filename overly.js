@@ -436,22 +436,11 @@ Declan.addEventListener('click', () => {
 
         Declan.textContent = "Sheaffer"
 
-        let newimageone = document.createElement('img')
-        newimageone.src = 'https://www.pngall.com/wp-content/uploads/14/Poop-PNG-Pic.png'
-        newimageone.height = 200;
-        newimageone.width = 200;
-        newimageone.id = 'newimagenewone'
-        let newimagecontone = document.querySelector("#image")
-        newimagecontone.appendChild(newimageone);
-
-        setTimeout(() => {
-            newimagecont.removeChild(newimageone)
-        }, 3000);
     }
     if (Joel > 72080 && DeclanBought === true && JohnBought === true && SheafferBought === false) {
 
         SheafferBought = true
-
+        
         let SergeyButton = document.createElement("button")
 
         SergeyButton.textContent = "Sergey!"
@@ -508,6 +497,19 @@ Declan.addEventListener('click', () => {
         }
     }
     if (Joel < 1259 && Joel > 51 && JohnBought === false && DeclanBought === true) {
+
+        let newimageone = document.createElement('img')
+        newimageone.src = 'https://www.pngall.com/wp-content/uploads/14/Poop-PNG-Pic.png'
+        newimageone.height = 200;
+        newimageone.width = 200;
+        newimageone.id = 'newimagenewone'
+        let newimagecontone = document.querySelector("#image")
+        newimagecontone.appendChild(newimageone);
+
+        setTimeout(() => {
+            newimagecont.removeChild(newimageone)
+        }, 3000);
+
         if (Math.round(Joel) % 12 === 0) {
             alert("Womp womp, you need more money.")
         }
